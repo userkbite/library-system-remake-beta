@@ -41,6 +41,7 @@
                                     <th>Curso</th>
                                     <th>Empréstimo</th>
                                     <th>Devolução</th>
+                                    <th>Situação</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -54,6 +55,7 @@
                                     <td>{{ loan.curse }}</td>
                                     <td>{{ loan.loan|format_date }}</td>
                                     <td>{{ loan.devolution|format_date }}</td>
+                                    <td>{{ loan.situation }}</td>
                                     <td>
                                         <a
                                             href="{{ url_for('delete_loan', id=loan.id) }}"

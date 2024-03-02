@@ -87,6 +87,18 @@
                                 <label for="book">Data de Devolução</label>
                             </div>
                             <div class="input-field col s12">
+                                <select class="browser-default" id="situation" name="situation">
+                                    <option value="" disabled selected>Situação de Devolução</option>
+                                    <option value="OK" {% if data[6] == "OK" %}selected{% endif %}>
+                                        OK
+                                    </option>
+                                    <option value="Devolvido" {% if data[6] == "Devolvido" %}selected{% endif %}>Devolvido</option>
+                                    <option value="Atrasado" {% if data[6] == "Atrasado" %}selected{% endif %}>
+                                        Atrasado
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="input-field col s12">
                                 <button
                                     type="submit"
                                     class="btn-small waves-effect waves-light orange"

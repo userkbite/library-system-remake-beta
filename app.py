@@ -17,7 +17,8 @@ loans = [
         "book": "Aventuras de Tom Sawyer",
         "curse": "Técnico em Informática",
         "loan": "2024-02-01",
-        "devolution": "2024-02-15"
+        "devolution": "2024-02-15",
+        "situation": "OK"
     },
     {
         "id": 2,
@@ -25,7 +26,8 @@ loans = [
         "book": "Nieztsche",
         "curse": "Técnico em Informática",
         "loan": "2024-01-15",
-        "devolution": "2024-02-10"
+        "devolution": "2024-02-10",
+        "situation": "Atrasado"
     }
 ]
 
@@ -52,7 +54,8 @@ def add_loan():
         "book": book,
         "curse": curse,
         "loan": loan_date,
-        "devolution": devolution
+        "devolution": devolution,
+        "situation": "OK"
     }
     loans.append(loan)
     return redirect(url_for('index'))
@@ -75,6 +78,7 @@ def edit(id):
             curse = loan['curse']
             loan_date = loan['loan']
             devolution = loan['devolution']
+            situation = loan['situation']
 
             edit_data.append(id)
             edit_data.append(name)
@@ -82,6 +86,7 @@ def edit(id):
             edit_data.append(curse)
             edit_data.append(loan_date)
             edit_data.append(devolution)
+            edit_data.append(situation)
         
     return render_template('edit.html', data=edit_data)
 
@@ -93,7 +98,7 @@ def edit_loan():
     curse = request.form['curse']
     loan_date = request.form['loan']
     devolution = request.form['devolution']
-
+    situation = request.form['situation']
 
     for loan in loans:
         print(loan['id'])
@@ -105,6 +110,7 @@ def edit_loan():
             loan['curse'] = curse
             loan['loan'] = loan_date
             loan['devolution'] = devolution
+            loan['situation'] = situation
 
     return redirect(url_for('index'))
 
