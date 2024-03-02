@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from datetime import datetime
+from operator import itemgetter
 
 app = Flask(__name__)
 
@@ -30,7 +31,8 @@ loans = [
 
 @app.route('/')
 def index():
-    return render_template('index.html', loans=loans)
+    sorted_loans = sorted(loans, key=itemgetter('devolution'), reverse=True)
+    return render_template('index.html', loans=sorted_loans)
 
 @app.route('/add')
 def add():
