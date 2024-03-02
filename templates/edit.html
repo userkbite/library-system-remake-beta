@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Editar</title>
+
+        <!-- Compiled and minified CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h4>Adicionar Registro</h4>
+                    <form class="col s12" action="/edit_loan" method="post">
+                        <div class="row">
+                            <input type="text" name="id" id="id" value="{{ data[0] }}" hidden>
+                            <div class="input-field col s12">
+                                <input
+                                    type="text"
+                                    name="name"
+                                    id="name"
+                                    class="validate"
+                                    required
+                                    value="{{ data[1] }}"
+                                />
+                                <label for="name">Nome do Aluno</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input
+                                    type="text"
+                                    name="book"
+                                    id="book"
+                                    class="validate"
+                                    required
+                                    value="{{ data[2] }}"
+                                />
+                                <label for="book">Nome do Livro</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <select class="browser-default" id="curse" name="curse">
+                                    <option value="" disabled selected>Selecione o Curso do Aluno</option>
+                                    <option value="M-TEC Administração" {% if data[3] == "M-TEC Administração" %}selected{% endif %}>
+                                        M-TEC Administração
+                                    </option>
+                                    <option value="M-TEC Eventos" {% if data[3] == "M-TEC Eventos" %}selected{% endif %}>M-TEC Eventos</option>
+                                    <option value="M-TEC Recursos Humanos" {% if data[3] == "M-TEC Recursos Humanos" %}selected{% endif %}>
+                                        M-TEC Recursos Humanos
+                                    </option>
+                                    <option value="M-TEC Desenvolvimento de Sistemas" {% if data[3] == "M-TEC Desenvolvimento de Sistemas" %}selected{% endif %}>
+                                        M-TEC Desenvolvimento de Sistemas
+                                    </option>
+                                    <option value="Segurança do Trabalho" {% if data[3] == "Segurança do Trabalho" %}selected{% endif %}>
+                                        Segurança do Trabalho
+                                    </option>
+                                    <option value="Técnico em Informática" {% if data[3] == "Técnico em Informática" %}selected{% endif %}>
+                                        Técnico em Informática
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="input-field col s12">
+                                <input
+                                    type="date"
+                                    name="loan"
+                                    id="loan"
+                                    class="validate"
+                                    required
+                                    value="{{ data[4] }}"
+                                />
+                                <label for="loan">Data do Empréstimo</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <input
+                                    type="date"
+                                    name="devolution"
+                                    id="devolution"
+                                    class="validate"
+                                    required
+                                    value="{{ data[5] }}"
+                                />
+                                <label for="book">Data de Devolução</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <button
+                                    type="submit"
+                                    class="btn-small waves-effect waves-light orange"
+                                >
+                                    Atualizar Registro
+                                </button>
+                                <a
+                                    href="/"
+                                    class="btn-small waves-effect waves-light blue"
+                                    >Voltar Para o Início</a
+                                >
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        </script>
+    </body>
+</html>
