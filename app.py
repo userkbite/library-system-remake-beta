@@ -66,13 +66,16 @@ def delete_loan(id):
         if loan['id'] == id:
             loans.remove(loan)
             break
+        
     return redirect(url_for('index'))
 
 @app.route('/edit/<int:id>')
 def edit(id):
     edit_data = []
+    found = False
     for loan in loans:
         if loan['id'] == id:
+            found = True
             name = loan['name']
             book = loan['book']
             curse = loan['curse']
@@ -87,8 +90,11 @@ def edit(id):
             edit_data.append(loan_date)
             edit_data.append(devolution)
             edit_data.append(situation)
-        
-    return render_template('edit.html', data=edit_data)
+
+    if found:
+        return render_template('edit.html', data=edit_data)
+    else:
+        return redirect(url_for('index'))
 
 @app.route('/edit_loan', methods=['POST'])
 def edit_loan():
